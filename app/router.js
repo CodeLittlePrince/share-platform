@@ -6,5 +6,5 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
-  router.get('/share.png', controller.home.share);
+  router.get('/share.png', controller.globalpay.share);
 };
