@@ -7,12 +7,16 @@ class AppBootHook {
     this.app = app;
   }
 
+  /**
+   * 文件加载完成
+   */
   async didLoad() {
-    // 所有的配置已经加载完毕
-    // 可以用来加载应用自定义的文件，启动自定义的服务
-    this.app.pool = initPuppeteerPool();
+    this.app.pool = initPuppeteerPool(this.app);
   }
 
+  /**
+   * 应用即将关闭
+   */
   async beforeClose() {
     if (this.app.pool.drain) {
       await this.app.pool.drain().then(() => this.app.pool.clear());
