@@ -26,12 +26,7 @@ const initPuppeteerPool = (app, options = {}) => {
     autostart = false,
     idleTimeoutMillis = 3600000,
     evictionRunIntervalMillis = 180000,
-    puppeteerArgs = {
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-      ],
-    },
+    puppeteerArgs = {},
     validator = () => Promise.resolve(true),
     ...otherConfig
   } = options;
